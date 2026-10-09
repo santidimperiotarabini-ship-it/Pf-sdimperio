@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="theme-color" content="#f4f1eb"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Ocho semanas de gimnasio para bajar grasa y ganar músculo, con video de cada ejercicio."><meta property="og:title" content="Programa 8 semanas · Recomposición"><meta property="og:description" content="8 semanas · 3 sesiones por semana · video de cada ejercicio"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Programa 8 semanas · Santi Dimperio PF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: hard-court header band with chalk lines, an 8-week strip, A/B/C session tabs, then exercise rows grouped by block. */
+:root {
+  --bg: #f4f1eb; --surface: #ffffff; --ink: #14161a; --muted: #5d6066; --line: #ddd7cc;
+  --court: #14161a; --court-ink: #f4f1eb; --chalk: rgba(255,255,255,.14);
+  --ball: #ff5a36; --ball-ink: #ffffff; --done: #2e9e5b; --deload: #b86b12;
+  color-scheme: light;
+  --f-display: "Archivo", "Arial Black", sans-serif;
+  --f-body: "Archivo", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 0 48px; }
+.court { background: var(--court); border-bottom: 1px solid var(--line); color: var(--court-ink); position: relative; overflow: hidden; }
+.court::before, .court::after { content: ""; position: absolute; pointer-events: none; }
+.court::before { display: none; }
+.court::after { display: none; }
+.court .wrap { position: relative; padding-block: 34px 28px; }
+.brand { font-family: var(--f-display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 13px; opacity: .85; display: flex; align-items: center; gap: 8px; }
+.ballmark { width: 12px; height: 12px; border-radius: 50%; background: var(--ball); }
+h1 { font-family: var(--f-display); font-weight: 900; letter-spacing: -.035em; font-size: clamp(40px, 11vw, 64px); line-height: .95; margin: 14px 0 8px; text-wrap: balance; }
+.lede { max-width: 46ch; margin: 0; font-size: 17px; opacity: .92; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 18px; font-size: 14px; }
+.stats small { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+.intro { display: grid; gap: 10px; margin-top: 22px; }
+.intro p { margin: 0; color: var(--muted); max-width: 62ch; }
+.phases { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.phase { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.phase b { display: block; font-family: var(--f-display); font-size: 20px; text-transform: uppercase; }
+.phase span { color: var(--muted); font-size: 14px; }
+@media (max-width: 480px) { .phases { grid-template-columns: 1fr; } }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px 10px; margin-top: 18px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.weeks { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+.wk small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 520px) { .wk small { display: none; } .wk { padding: 9px 0; } }
+.wk { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 6px 0; text-align: center; font-family: var(--f-display); font-weight: 700; font-size: 18px; line-height: 1.1; }
+.wk small { display: block; font-family: var(--f-body); font-weight: 600; font-size: 10px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.wk[aria-pressed="true"] { background: var(--ball); border-color: var(--ball); color: var(--ball-ink); }
+.wk:disabled { opacity: .45; cursor: not-allowed; }
+.wk[aria-pressed="true"] small { color: var(--ball-ink); }
+.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tab { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px; padding: 8px 4px; text-align: center; }
+.tab .n { display: block; font-family: var(--f-display); font-weight: 700; font-size: 19px; line-height: 1.1; text-transform: uppercase; }
+.tab .p { display: block; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.tab[aria-selected="true"] .p { color: var(--bg); opacity: .7; }
+.wk:focus-visible, .tab:focus-visible, .chk:focus-visible, .vid:focus-visible { outline: 3px solid var(--ball); outline-offset: 2px; }
+.focus { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 15px; }
+.focus strong { font-family: var(--f-display); text-transform: uppercase; letter-spacing: .05em; font-size: 16px; margin-right: 6px; }
+.focus.deload strong { color: var(--deload); }
+.dayhead { margin-top: 18px; display: grid; gap: 4px; }
+.dayhead h2 { font-family: var(--f-display); font-weight: 700; font-size: 30px; line-height: 1.05; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.dayhead p { margin: 0; color: var(--muted); font-size: 15px; }
+.bar { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 8px; }
+.bar i { display: block; height: 100%; width: 0; background: var(--done); transition: width .3s ease; }
+.block { margin-top: 22px; }
+.block h3 { font-family: var(--f-display); font-weight: 600; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; display: flex; justify-content: space-between; gap: 8px; }
+.list { display: grid; gap: 8px; }
+.ex { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.ex.is-done { border-color: var(--done); }
+.ex.is-done .name { text-decoration: line-through; text-decoration-thickness: 1px; color: var(--muted); }
+.chk { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--line); background: transparent; cursor: pointer; display: grid; place-items: center; margin-top: 2px; color: transparent; }
+.ex.is-done .chk { background: var(--done); border-color: var(--done); color: var(--surface); }
+.chk svg { width: 16px; height: 16px; }
+.body { min-width: 0; display: grid; gap: 4px; }
+.row1 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.code { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.name { font-weight: 700; font-size: 16px; line-height: 1.3; }
+.rx { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+.rx span { color: var(--muted); }
+.cue { color: var(--muted); font-size: 14px; }
+.vid { justify-self: start; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px 4px 6px; background: transparent; cursor: pointer; }
+.vid .play { width: 20px; height: 20px; border-radius: 50%; background: var(--ball); display: grid; place-items: center; }
+.vid .play::after { content: ""; border-left: 7px solid var(--ball-ink); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; margin-left: 2px; }
+.player { width: 100%; max-width: 360px; max-height: 70vh; border-radius: 10px; background: var(--line); margin-top: 6px; display: block; }
+.vmsg { color: var(--muted); font-size: 14px; min-height: 1.2em; }
+section.more { margin-top: 36px; display: grid; gap: 12px; }
+section.more h2 { font-family: var(--f-display); font-weight: 700; font-size: 26px; text-transform: uppercase; margin: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.panel ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.foot { margin-top: 28px; color: var(--muted); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+.gate { position: fixed; inset: 0; z-index: 50; background: var(--bg); color: var(--ink); display: grid; place-items: center; padding: 16px; }
+.gbox { width: 100%; max-width: 380px; display: grid; gap: 10px; }
+.gbox h2 { font-family: var(--f-display); font-weight: 700; font-size: 40px; line-height: 1; text-transform: uppercase; margin: 6px 0 0; }
+.gbox p { margin: 0; opacity: .9; }
+#gform { display: grid; gap: 8px; margin-top: 8px; }
+#gform label { font-size: 14px; font-weight: 600; }
+#gform input { font: inherit; font-size: 18px; letter-spacing: .08em; text-transform: uppercase; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); }
+.gbtn { font: inherit; font-weight: 800; font-size: 17px; padding: 13px; border-radius: 999px; border: 0; background: var(--ball); color: var(--ball-ink); cursor: pointer; }
+.gerr { min-height: 1.3em; font-size: 15px; }
+</style>
+</head><body>
+
+<div id="gate" class="gate" hidden><div class="gbox">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF</div>
+  <h2>Programa 8 semanas</h2>
+  <p>Ingresá el código de acceso que recibiste al comprar.</p>
+  <form id="gform"><label for="gcode">Código de acceso</label><input id="gcode" autocomplete="off" autocapitalize="characters"><button class="gbtn" type="submit">Empezar a entrenar</button><div class="gerr" id="gerr" aria-live="polite"></div></form>
+</div></div>
+<header class="court"><div class="wrap">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF</div>
+  <h1>Programa 8 semanas · Recomposición</h1>
+  <p class="lede">Ocho semanas de gimnasio para bajar grasa, ganar músculo y sentirte con más energía. Con un hábito nuevo cada semana.</p>
+  <div class="stats">
+    <span><small>Duración</small>8 semanas</span>
+    <span><small>Sesiones</small>3 por semana</span>
+    <span><small>Tiempo</small>50–60 min</span>
+    <span><small>Nivel</small>Principiante a intermedio</span>
+    <span><small>Material</small>Gimnasio completo</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="intro">
+    <div class="phases">
+      <div class="phase"><b>Semanas 1–4 · Base</b><span>Aprender la técnica y sumar volumen: más repeticiones para construir músculo.</span></div>
+      <div class="phase"><b>Semanas 5–8 · Fuerza</b><span>Más carga, menos repeticiones y cierres más intensos.</span></div>
+    </div>
+    <p>Cada sesión sigue el mismo orden: movilidad (8 min), core (8 min), fuerza (30 min) y un cierre metabólico corto. Tocá "Ver video" en cada ejercicio y marcá el círculo cuando lo termines.</p>
+  </div>
+
+  <nav class="nav" aria-label="Navegación del programa">
+    <div class="weeks" id="weeks" role="group" aria-label="Semana"></div>
+    <div class="tabs" role="tablist" id="tabs" aria-label="Sesión"></div>
+  </nav>
+
+  <div id="focus"></div>
+  <div id="day"></div>
+
+  <section class="more">
+    <h2>Cómo progresar</h2>
+    <div class="panel">
+      <ul>
+        <li><b>Semanas 1 y 5:</b> aprendé los ejercicios. Terminá cada serie con 2–3 repeticiones en reserva.</li>
+        <li><b>Semanas 2 y 6:</b> sumá un poco de carga en Fuerza, mismas series y repeticiones.</li>
+        <li><b>Semanas 3 y 7:</b> una serie más en Fuerza y en el cierre (ya está sumada en el plan).</li>
+        <li><b>Semanas 4 y 8:</b> descarga. Una serie menos, misma carga, técnica prolija.</li>
+      </ul>
+    </div>
+    <h2>Entrená inteligente</h2>
+    <div class="panel">
+      <ul>
+        <li>Dejá al menos un día entre la sesión A y la C.</li>
+        <li>Caminá 8.000 pasos por día: suma tanto como el gimnasio.</li>
+        <li>Si el dolor pasa de 3 sobre 10, cortá ese ejercicio y ajustá.</li>
+      </ul>
+    </div>
+  </section>
+  <p class="foot">Programa 8 semanas · Santi Dimperio PF · Los consejos de alimentación son generales y no reemplazan a un nutricionista.</p>
+</main>
+
+<script>
+// [code, name, sets, reps, rest, cue]
+const PHASES = [
+ { A: { t: "Piernas y empuje", s: "Sentadilla, estocada, press y remo.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-04","Apertura de cadera y rotación torácica",2,"5 por lado","","Abrí la cadera y seguí la mano con el pecho."],
+     ["MO-06","CARs de cadera de pie",2,"3 por lado","","Círculos grandes y lentos, tronco quieto."],
+     ["MO-09","Sentadilla profunda con talones elevados",2,"8","","Bajá profundo, pecho arriba."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-01","Dead bug con pelota",3,"8 por lado","30 s","Zona lumbar pegada al piso, soltá el aire."],
+     ["CO-06","Farmer's walk",3,"30 m","45 s","Caminá alto, hombros abajo, pesas pesadas."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-01","Goblet squat",3,"10","90 s","Codos por dentro de las rodillas, bajada en 3 segundos."],
+     ["FZ-04","Split squat con elevación de talón",3,"8 por lado","75 s","Rodilla de adelante sobre el pie, torso apenas inclinado."],
+     ["FZ-12","Press inclinado con mancuernas",3,"10","75 s","Omóplatos juntos, bajá hasta el pecho."],
+     ["FZ-09","Remo a un brazo con mancuerna",3,"10 por lado","60 s","Llevá el codo a la cadera."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-01","Med ball slam",4,"10","30 s","Estirate arriba y tirá con todo el cuerpo."] ]} ]},
+  B: { t: "Glúteos y espalda", s: "Bisagra de cadera, glúteo, jalón y hombros.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-01","Plancha alta con rotación de tronco",2,"5 por lado","","Hombro sobre la mano, gira todo el tronco."],
+     ["MO-07","CARs de cadera en cuadrupedia",2,"3 por lado","","Círculos lentos, tronco quieto."],
+     ["MO-08","Abducción de cadera con banda",2,"12 por lado","","Pelvis quieta, que trabaje el glúteo."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-04","Plancha con mini band",3,"6 por lado","30 s","Cadera alineada, sin rotar."],
+     ["CO-08","Bird dog con mancuerna",3,"6 por lado","30 s","Espalda quieta, empujá con el glúteo."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-03","Peso muerto rumano (RDL)",3,"10","90 s","Cadera atrás, espalda neutra, la barra pegada a las piernas."],
+     ["FZ-08","Extensión de cadera en polea",3,"12 por lado","60 s","Empujá con glúteo, no con la zona lumbar."],
+     ["FZ-11","Jalón a un brazo en semi arrodillado",3,"10 por lado","60 s","Codo a las costillas, sin girar el tronco."],
+     ["FZ-15","Press de hombro en semi arrodillado",3,"8 por lado","60 s","Glúteo apretado, costillas abajo."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-03","Tijeras (saltos alternados)",6,"20 s","40 s","Rápido y controlado. Sin impacto: estocadas alternadas."] ]} ]},
+  C: { t: "Full body", s: "Un poco de todo para cerrar la semana.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-02","Libritos en lateral",2,"8 por lado","","Rodillas juntas, seguí la mano con la mirada."],
+     ["MO-03","Rotación torácica en cuadrupedia",2,"6 por lado","","Que gire la espalda alta."],
+     ["MO-10","Retracción escapular con banda",2,"12","","Omóplatos atrás y abajo."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-02","Dead bug con elástico",3,"8 por lado","30 s","Brazos firmes, piernas lentas."],
+     ["CO-09","Antirrotación en split con polea",3,"8 por lado","30 s","Que no se mueva la cadera."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-06","Bajadas del cajón con mancuerna",3,"8 por lado","75 s","Bajá en 3 segundos, la rodilla sigue al pie."],
+     ["FZ-13","Press en el piso con mancuernas",3,"10","60 s","Codos a 45°, pausa abajo."],
+     ["FZ-10","Remo en TRX",3,"12","60 s","Cuerpo en bloque, pecho a las manos."],
+     ["FZ-14","Press de hombro con mancuernas",3,"10","60 s","Sin arquear la espalda."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-02","Med ball slam en split",4,"8 por lado","30 s","Cambiá de pierna adelante en cada serie."] ]} ]} },
+ { A: { t: "Piernas y empuje · Fuerza", s: "Más carga y menos repeticiones.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-05","Avioncito con apertura de cadera",2,"5 por lado","","Firme sobre la pierna de apoyo."],
+     ["MO-06","CARs de cadera de pie",2,"3 por lado","","Círculos lentos."],
+     ["MO-09","Sentadilla profunda con talones elevados",2,"8","","Pecho arriba."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-05","Copenhagen plank",3,"20 s por lado","30 s","Si cuesta, apoyá la rodilla."],
+     ["CO-07","Farmer walk con una mancuerna arriba",3,"20 m por lado","45 s","Brazo estirado, costillas abajo."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-01","Goblet squat pesado",4,"8","2 min","Que las últimas 2 repeticiones cuesten."],
+     ["FZ-17","Estocada trasera en déficit + subida al cajón",3,"8 por lado","90 s","Bajada controlada, subida fuerte."],
+     ["FZ-12","Press inclinado con mancuernas",4,"8","90 s","Más peso que en la fase 1."],
+     ["FZ-09","Remo a un brazo con mancuerna",4,"8 por lado","75 s","Pesado y sin balanceo."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-04","Bound lateral continuo",6,"20 s","40 s","De un pie al otro, caídas suaves."] ]} ]},
+  B: { t: "Glúteos y espalda · Fuerza", s: "Peso muerto, glúteo y tirones pesados.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-01","Plancha alta con rotación de tronco",2,"5 por lado","","Gira todo el tronco."],
+     ["MO-07","CARs de cadera en cuadrupedia",2,"3 por lado","","Círculos lentos."],
+     ["MO-11","Extensión de columna con roller",2,"8","","Extendé solo la espalda alta."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-03","Bicho muerto con banda + pelota",3,"6 por lado","30 s","Apretá la pelota entre las rodillas."],
+     ["CO-08","Bird dog con mancuerna",3,"8 por lado","30 s","Lento y controlado."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-02","Peso muerto con barra",4,"6","2 min","Espalda neutra, empujá el piso."],
+     ["FZ-08","Extensión de cadera en polea",3,"12 por lado","60 s","Pausa de 1 segundo arriba."],
+     ["FZ-11","Jalón a un brazo en semi arrodillado",4,"8 por lado","75 s","Más carga, misma técnica."],
+     ["FZ-16","Push press con barra landmine",3,"8 por lado","75 s","Flexioná y empujá con las piernas."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-01","Med ball slam",5,"10","30 s","Máxima intensidad en cada tiro."] ]} ]},
+  C: { t: "Full body · Fuerza", s: "Trabajo a una pierna, empuje y tirón.", blocks: [
+   { n: "Movilidad", k: "prep", ex: [
+     ["MO-02","Libritos en lateral",2,"8 por lado","","Seguí la mano con la mirada."],
+     ["MO-04","Apertura de cadera y rotación torácica",2,"5 por lado","","Abrí la cadera."],
+     ["MO-12","Preventivo de hombro",2,"12","","Carga liviana, sin dolor."] ]},
+   { n: "Core", k: "core", ex: [
+     ["CO-02","Dead bug con elástico",3,"10 por lado","30 s","Piernas lentas."],
+     ["CO-09","Antirrotación en split con polea",3,"10 por lado","30 s","Cadera quieta."] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FZ-18","Estocada lateral elevada con kettlebell",3,"8 por lado","75 s","Sentate en la cadera, pie entero apoyado."],
+     ["FZ-05","Bajada del cajón a una pierna",3,"6 por lado","60 s","Bajá en 3 segundos."],
+     ["FZ-13","Press en el piso con mancuernas",4,"8","75 s","Más peso que en la fase 1."],
+     ["FZ-10","Remo en TRX",4,"10","60 s","Pies más adelante para que cueste más."] ]},
+   { n: "Cierre metabólico", k: "fin", ex: [
+     ["AC-06","Slalom entre conos + sprint",6,"1 pasada","45 s","Rápido entre los conos, sprint de 10 m."] ]} ]} }
+];
+const WEEK = {
+  1: ["Aprender", "Aprendé los ejercicios. Terminá cada serie con 3 repeticiones en reserva.", "Hábito: proteína en cada comida (carne, pollo, pescado, huevo, lácteos o legumbres)."],
+  2: ["Construir", "Sumá un poco de carga en Fuerza. Mismas series y repeticiones.", "Hábito: 2 litros de agua por día. Llevá una botella a todos lados."],
+  3: ["Sobrecarga", "Una serie más en Fuerza (ya está sumada).", "Hábito: medio plato de verduras en almuerzo y cena."],
+  4: ["Descarga", "Una serie menos. Misma carga, técnica prolija.", "Hábito: 7 horas de sueño. Pantallas afuera 30 min antes de dormir."],
+  5: ["Aprender", "Fase de fuerza: más peso y menos repeticiones. Descansá completo.", "Hábito: 8.000 pasos por día."],
+  6: ["Construir", "Sumá carga en Fuerza. Anotá tus pesos.", "Hábito: planificá tus comidas del día anterior."],
+  7: ["Sobrecarga", "Una serie más en Fuerza (ya está sumada).", "Hábito: ultraprocesados como excepción, no como regla."],
+  8: ["Descarga", "Una serie menos. Después, ponete a prueba: estás listo para más.", "Hábito: sacate una foto y comparala con la del inicio."]
+};
+const SESS = ["A","B","C"];
+
+const KEY = "pf-8wk";
+let done = {}, week = 1, sess = 0, openVid = null, previewMode = false;
+function setPreview(on) { previewMode = on; if (on) { week = 1; openVid = null; } render(); }
+try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d) { done = d.done || {}; week = d.week || 1; sess = d.sess || 0; } } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ done, week, sess })); } catch (e) {} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const check = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+
+function dayOf(w, s) { return PHASES[w <= 4 ? 0 : 1][SESS[s]]; }
+function setsFor(w, k, base) {
+  const wk = ((w - 1) % 4) + 1;
+  if (wk === 3 && k === "main") return base + 1;
+  if (wk === 3 && k === "fin") return base + 1;
+  if (wk === 4 && k !== "prep") return Math.max(1, base - 1);
+  return base;
+}
+function keyOf(w, s, b, i) { return `${w}-${s}-${b}-${i}`; }
+function count(w, s) { let t = 0, n = 0; dayOf(w, s).blocks.forEach((b, bi) => b.ex.forEach((e, i) => { t++; if (done[keyOf(w, s, bi, i)]) n++; })); return [n, t]; }
+
+function render() {
+  document.getElementById("weeks").innerHTML = Array.from({ length: 8 }, (_, i) => i + 1).map(w =>
+    `<button class="wk" type="button" data-w="${w}" aria-pressed="${w === week}"${previewMode && w > 1 ? ' disabled aria-label="Semana ' + w + ' bloqueada"' : ""}>${previewMode && w > 1 ? "🔒" : w}<small>${WEEK[w][0]}</small></button>`).join("");
+  document.getElementById("tabs").innerHTML = SESS.map((S, s) => {
+    const [n, t] = count(week, s);
+    return `<button class="tab" role="tab" id="tab${s}" type="button" data-s="${s}" aria-selected="${s === sess}"><span class="n">Sesión ${S}</span><span class="p">${n}/${t}</span></button>`;
+  }).join("");
+  const wk = WEEK[week];
+  document.getElementById("focus").innerHTML = (previewMode ? `<div class="focus deload"><strong>Vista previa</strong>Ves solo la semana 1.</div>` : "") + `<div class="focus${wk[0] === "Descarga" ? " deload" : ""}"><strong>Semana ${week} · ${wk[0]}</strong>${wk[1]}<div style="margin-top:6px;color:var(--muted)">${wk[2]}</div></div>`;
+  const d = dayOf(week, sess), [n, t] = count(week, sess);
+  let html = `<div class="dayhead"><h2>${d.t}</h2><p>${d.s}</p><div class="bar" aria-hidden="true"><i style="width:${Math.round(n / t * 100)}%"></i></div></div>`;
+  d.blocks.forEach((b, bi) => {
+    html += `<div class="block"><h3><span>${b.n}</span><span>${b.ex.length} ejercicios</span></h3><div class="list">`;
+    b.ex.forEach((e, i) => {
+      const [code, name, sets, reps, rest, cue] = e, k = keyOf(week, sess, bi, i), isDone = !!done[k], open = openVid === k;
+      const rx = `${setsFor(week, b.k, sets)} × ${esc(reps)}` + (rest ? ` <span>·</span> ${esc(rest)}` : "");
+      html += `<div class="ex${isDone ? " is-done" : ""}"><button class="chk" type="button" id="c-${k}" data-k="${k}" aria-pressed="${isDone}" aria-label="Marcar ${esc(name)} como hecho">${check}</button>
+        <div class="body"><div class="row1"><span class="code">${code}</span><span class="name">${esc(name)}</span></div>
+        <div class="rx">${rx}</div><div class="cue">${esc(cue)}</div>
+        <button class="vid" type="button" data-v="${k}" aria-expanded="${open}"><span class="play"></span>${open ? "Cerrar video" : "Ver video"}</button>
+        ${open ? `<video class="player" data-code="${code}" controls playsinline muted loop autoplay></video><div class="vmsg" aria-live="polite">Cargando video…</div>` : ""}</div></div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById("day").innerHTML = html;
+  const v = document.querySelector("#day video.player"); if (v) loadVideo(v);
+}
+const blobCache = {};
+async function loadVideo(v) {
+  const code = v.dataset.code, msg = v.nextElementSibling;
+  try {
+    if (!blobCache[code]) {
+      const r = await fetch("../videos/" + code + ".mp4"); if (!r.ok) throw new Error(r.status);
+      blobCache[code] = URL.createObjectURL(new Blob([await r.arrayBuffer()], { type: "video/mp4" }));
+    }
+    if (!v.isConnected) return;
+    v.src = blobCache[code]; msg.textContent = "";
+    const p = v.play(); if (p && p.catch) p.catch(() => { msg.textContent = "Tocá play para verlo."; });
+  } catch (e) { if (msg) msg.textContent = "No se pudo cargar el video. Revisá tu conexión y volvé a tocar Ver video."; }
+}
+document.querySelector(".nav").addEventListener("click", e => {
+  const w = e.target.closest(".wk"), t = e.target.closest(".tab");
+  if (w && !w.disabled) { week = +w.dataset.w; openVid = null; save(); render(); document.querySelector(`.wk[data-w="${week}"]`).focus(); }
+  if (t) { sess = +t.dataset.s; openVid = null; save(); render(); document.getElementById("tab" + sess).focus(); }
+});
+document.getElementById("day").addEventListener("click", e => {
+  const v = e.target.closest(".vid");
+  if (v) { openVid = openVid === v.dataset.v ? null : v.dataset.v; render(); const a = document.querySelector(`.vid[data-v="${v.dataset.v}"]`); if (a) a.focus(); return; }
+  const b = e.target.closest(".chk"); if (!b) return;
+  const k = b.dataset.k; if (done[k]) delete done[k]; else done[k] = 1;
+  save(); render(); const a = document.getElementById("c-" + k); if (a) a.focus();
+});
+render();
+
+const CODE_HASHES = ["0304fe7f12b1c296a39bb801dd51cbfb70e4c78c7d6447614434984ee4bdd56f"];
+const PREVIEW = { hash: "", until: 0 };
+async function sha(t) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+(function () {
+  const g = document.getElementById("gate"); let ok = false;
+  try { const st = localStorage.getItem("pf-8wk-ok"); ok = CODE_HASHES.includes(st) || (st === PREVIEW.hash && Date.now() < PREVIEW.until); if (st === PREVIEW.hash && ok) setPreview(true); } catch (e) {}
+  if (!ok) g.hidden = false;
+  document.getElementById("gform").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const v = document.getElementById("gcode").value.trim().toUpperCase();
+    const hv = await sha(v);
+    if (CODE_HASHES.includes(hv)) { try { localStorage.setItem("pf-8wk-ok", hv); } catch (e) {} setPreview(false); g.hidden = true; }
+    else if (hv === PREVIEW.hash && Date.now() < PREVIEW.until) { try { localStorage.setItem("pf-8wk-ok", hv); } catch (e) {} setPreview(true); g.hidden = true; }
+    else if (hv === PREVIEW.hash) document.getElementById("gerr").textContent = "Este código de prueba venció.";
+    else document.getElementById("gerr").textContent = "Ese código no funcionó. Revisá el mensaje de tu compra y probá de nuevo.";
+  });
+  setInterval(() => { if (previewMode && Date.now() >= PREVIEW.until) { try { localStorage.removeItem("pf-8wk-ok"); } catch (e) {} location.reload(); } }, 60000);
+})();
+</script>
+
+</body></html>

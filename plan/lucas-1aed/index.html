@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="theme-color" content="#0a0b0d"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Plan personalizado de preparación física para fútbol · Mes 1"><meta property="og:title" content="Tu plan · Mes 1 · Santi Dimperio · PF"><meta property="og:description" content="4 semanas · 2 días · video de cada ejercicio"><style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}.report { margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; }
+.report h3 { margin: 0; font-family: var(--f-display); font-size: 22px; }
+.report p { margin: 0; color: var(--muted); font-size: 14px; }
+.report label { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
+.report input, .report textarea { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+.report textarea { min-height: 70px; resize: vertical; }
+.report .rpe { display: flex; flex-wrap: wrap; gap: 6px; }
+.report .rpe button { font: inherit; font-weight: 700; width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.report .rpe button[aria-pressed="true"] { background: var(--ball); border-color: var(--ball); color: var(--ball-ink); }
+.report .send { font: inherit; font-weight: 800; font-size: 17px; padding: 14px; border-radius: 12px; border: 0; background: #25d366; color: #fff; cursor: pointer; }
+.report .err { color: var(--deload); font-size: 14px; min-height: 1.2em; }
+.report :focus-visible { outline: 3px solid var(--ball); outline-offset: 2px; }
+</style>
+<title>Plan de Lucas · Mes 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: hard-court header band with chalk lines, an 8-week strip, A/B/C session tabs, then exercise rows grouped by block. */
+:root {
+  --bg: #0a0b0d; --surface: #131519; --ink: #f2f3ef; --muted: #9a9fa6; --line: rgba(255,255,255,.1);
+  --court: #1a1d22; --court-ink: #f2f3ef; --chalk: rgba(255,255,255,.14);
+  --ball: #ff5a36; --ball-ink: #ffffff; --done: #6fcf8f; --deload: #e7b25a;
+  color-scheme: dark;
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 0 48px; }
+.court { background: var(--bg); border-bottom: 1px solid var(--line); color: var(--court-ink); position: relative; overflow: hidden; }
+.court::before, .court::after { content: ""; position: absolute; pointer-events: none; }
+.court::before { inset: 14px 16px; border: 2px solid var(--chalk); }
+.court::after { top: 14px; bottom: 14px; left: 62%; border-left: 2px solid var(--chalk); }
+.court .wrap { position: relative; padding-block: 34px 28px; }
+.brand { font-family: var(--f-display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 13px; opacity: .85; display: flex; align-items: center; gap: 8px; }
+.ballmark { width: 12px; height: 12px; border-radius: 50%; background: var(--ball); }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 11vw, 64px); line-height: .95; margin: 14px 0 8px; text-transform: uppercase; text-wrap: balance; }
+.lede { max-width: 46ch; margin: 0; font-size: 17px; opacity: .92; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 18px; font-size: 14px; }
+.stats small { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+.intro { display: grid; gap: 10px; margin-top: 22px; }
+.intro p { margin: 0; color: var(--muted); max-width: 62ch; }
+.phases { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.phase { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.phase b { display: block; font-family: var(--f-display); font-size: 20px; text-transform: uppercase; }
+.phase span { color: var(--muted); font-size: 14px; }
+@media (max-width: 480px) { .phases { grid-template-columns: 1fr; } }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px 10px; margin-top: 18px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.weeks { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+.wk small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 520px) { .wk small { display: none; } .wk { padding: 9px 0; } }
+.wk { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 6px 0; text-align: center; font-family: var(--f-display); font-weight: 700; font-size: 18px; line-height: 1.1; }
+.wk small { display: block; font-family: var(--f-body); font-weight: 600; font-size: 10px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.wk[aria-pressed="true"] { background: var(--ball); border-color: var(--ball); color: var(--ball-ink); }
+.wk:disabled { opacity: .45; cursor: not-allowed; }
+.wk[aria-pressed="true"] small { color: var(--ball-ink); }
+.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tab { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px; padding: 8px 4px; text-align: center; }
+.tab .n { display: block; font-family: var(--f-display); font-weight: 700; font-size: 19px; line-height: 1.1; text-transform: uppercase; }
+.tab .p { display: block; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.tab[aria-selected="true"] .p { color: var(--bg); opacity: .7; }
+.wk:focus-visible, .tab:focus-visible, .chk:focus-visible, .vid:focus-visible { outline: 3px solid var(--ball); outline-offset: 2px; }
+.focus { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 15px; }
+.focus strong { font-family: var(--f-display); text-transform: uppercase; letter-spacing: .05em; font-size: 16px; margin-right: 6px; }
+.focus.deload strong { color: var(--deload); }
+.dayhead { margin-top: 18px; display: grid; gap: 4px; }
+.dayhead h2 { font-family: var(--f-display); font-weight: 700; font-size: 30px; line-height: 1.05; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.dayhead p { margin: 0; color: var(--muted); font-size: 15px; }
+.bar { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 8px; }
+.bar i { display: block; height: 100%; width: 0; background: var(--done); transition: width .3s ease; }
+.block { margin-top: 22px; }
+.block h3 { font-family: var(--f-display); font-weight: 600; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; display: flex; justify-content: space-between; gap: 8px; }
+.list { display: grid; gap: 8px; }
+.ex { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.ex.is-done { border-color: var(--done); }
+.ex.is-done .name { text-decoration: line-through; text-decoration-thickness: 1px; color: var(--muted); }
+.chk { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--line); background: transparent; cursor: pointer; display: grid; place-items: center; margin-top: 2px; color: transparent; }
+.ex.is-done .chk { background: var(--done); border-color: var(--done); color: var(--surface); }
+.chk svg { width: 16px; height: 16px; }
+.body { min-width: 0; display: grid; gap: 4px; }
+.row1 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.code { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.name { font-weight: 700; font-size: 16px; line-height: 1.3; }
+.rx { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+.rx span { color: var(--muted); }
+.cue { color: var(--muted); font-size: 14px; }
+.vid { justify-self: start; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px 4px 6px; background: transparent; cursor: pointer; }
+.vid .play { width: 20px; height: 20px; border-radius: 50%; background: var(--ball); display: grid; place-items: center; }
+.vid .play::after { content: ""; border-left: 7px solid var(--ball-ink); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; margin-left: 2px; }
+.player { width: 100%; max-width: 360px; max-height: 70vh; border-radius: 10px; background: var(--line); margin-top: 6px; display: block; }
+.vmsg { color: var(--muted); font-size: 14px; min-height: 1.2em; }
+section.more { margin-top: 36px; display: grid; gap: 12px; }
+section.more h2 { font-family: var(--f-display); font-weight: 700; font-size: 26px; text-transform: uppercase; margin: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.panel ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.foot { margin-top: 28px; color: var(--muted); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+.weeks { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 520px) { .wk small { display: block; font-size: 9px; } .wk { padding: 6px 0; } }
+.ex.nov { grid-template-columns: auto 1fr; }
+.road { display: grid; gap: 8px; }
+.step { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.step.now { border-color: var(--ball); }
+.step .m { font-family: var(--f-display); font-weight: 700; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; background: var(--line); border-radius: 8px; padding: 2px 8px; white-space: nowrap; }
+.step.now .m { background: var(--ball); color: var(--ball-ink); }
+.step b { display: block; font-family: var(--f-display); font-size: 19px; text-transform: uppercase; line-height: 1.15; }
+.step span { color: var(--muted); font-size: 14px; }
+.test { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.test label { display: grid; gap: 4px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.test input { font: inherit; font-family: var(--f-mono); font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+.test input:focus-visible { outline: 3px solid var(--ball); outline-offset: 1px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ball-ink); background: var(--ball); border-radius: 6px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+.gate { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: grid; place-items: center; padding: 16px; }
+.gbox { width: 100%; max-width: 380px; display: grid; gap: 10px; }
+.gbox h2 { font-family: var(--f-display); font-weight: 700; font-size: 44px; line-height: .95; text-transform: uppercase; margin: 6px 0 0; }
+.gbox h2 span { color: var(--ball); }
+.gbox p { margin: 0; color: var(--muted); }
+#gform { display: grid; gap: 8px; margin-top: 8px; }
+#gform label { font-size: 14px; font-weight: 600; }
+#gform input { font: inherit; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); }
+#gform input:focus-visible { outline: 3px solid var(--ball); outline-offset: 1px; }
+.gbtn { font: inherit; font-weight: 700; font-size: 17px; padding: 13px; border-radius: 12px; border: 0; background: var(--ball); color: var(--ball-ink); cursor: pointer; }
+.gerr { min-height: 1.3em; font-size: 15px; color: var(--deload); }
+.log { display: flex; align-items: center; gap: 8px; margin-top: 2px; font-size: 13px; color: var(--muted); }
+.log input { font: inherit; font-family: var(--f-mono); font-size: 14px; width: 120px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+.prev { font-size: 13px; color: var(--muted); margin-top: -2px; }
+.prev b { color: var(--ink); font-family: var(--f-mono); font-weight: 500; }
+.log input:focus-visible { outline: 3px solid var(--ball); outline-offset: 1px; }
+.owner { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+.owner span { color: var(--ink); }
+.ended h2 { color: var(--ink); }
+.wa { display: block; text-align: center; text-decoration: none; }
+.place { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px; }
+.place button { font: inherit; font-weight: 700; font-size: 15px; border: 0; border-radius: 9px; padding: 9px 6px; background: transparent; color: var(--muted); cursor: pointer; }
+.place button[aria-pressed="true"] { background: var(--ball); color: var(--ball-ink); }
+.place button:focus-visible { outline: 3px solid var(--ball); outline-offset: 2px; }
+.foot { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font: inherit; font-size: 13px; padding: 0; }
+</style>
+
+</head><body>
+<div id="gate" class="gate" hidden><div class="gbox">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF</div>
+  <h2>Lucas<br><span>Salvucci</span></h2>
+  <p>Tu plan personal. Ingresá el código de acceso que te mandé.</p>
+  <form id="gform" autocomplete="off"><label for="gcode">Código de acceso</label><input id="gcode" autocapitalize="characters" spellcheck="false"><button class="gbtn" type="submit">Entrar</button><div class="gerr" id="gerr" aria-live="polite"></div></form>
+</div></div>
+
+<div id="ended" class="gate ended" hidden><div class="gbox">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF</div>
+  <h2>Tu mes<br><span>terminó</span></h2>
+  <p>¡Buen trabajo, Lucas! Para seguir con el Mes 2 (pliometría a una pierna y cambios de dirección reactivos) escribime y te paso tu plan nuevo.</p>
+  <a class="gbtn wa" href="https://wa.me/5491164122965?text=Hola%20Santi!%20Termin%C3%A9%20el%20Mes%201%2C%20quiero%20seguir%20con%20el%20Mes%202" target="_blank" rel="noopener">Escribirle a Santi por WhatsApp</a>
+</div></div>
+<header class="court"><div class="wrap">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF</div>
+  <h1>Lucas<br><span style="color:var(--ball)">Plan · Mes 1</span></h1>
+  <p class="lede">Volver a competir seguro con la rodilla y seguir sumando fuerza y potencia, sin llegar cargado al partido del fin de semana.</p>
+  <div class="stats">
+    <span><small>Duración</small>4 semanas</span>
+    <span><small>Físico</small>2 días por semana</span>
+    <span><small>Tiempo</small>70–80 min</span>
+    <span><small>Dónde</small>Gimnasio</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="intro">
+    <div class="phases">
+      <div class="phase"><b>Semanas 1–3 · Carga</b><span>Cada semana un poco más: más carga en Fuerza y una serie extra en la semana 3.</span></div>
+      <div class="phase"><b>Semana 4 · Descarga</b><span>Bajamos el volumen para asimilar y arrancar el mes 2 con todo.</span></div>
+    </div>
+    <p>Cada día va según tu partido. Tocá "Ver video" en cada ejercicio, marcá el círculo cuando lo termines y anotá el peso en los ejercicios de Fuerza. Al terminar, mandame el resumen.</p>
+  </div>
+
+  <nav class="nav" aria-label="Navegación del plan">
+    <div class="owner">Plan exclusivo de Lucas Salvucci · <span id="until"></span></div>
+    <div class="weeks" id="weeks" role="group" aria-label="Semana"></div>
+    <div class="tabs" role="tablist" id="tabs" aria-label="Día"></div>
+  </nav>
+
+  <div id="focus"></div>
+  <div id="day"></div>
+
+  <section class="more">
+    <h2>Cómo organizar la semana</h2>
+    <div class="panel">
+      <ul>
+        <li><b>Día 1</b> va 48 h después del partido (si jugás el domingo, el martes). Es el día pesado: aterrizajes y fuerza.</li>
+        <li><b>Día 2</b> va 3 o 4 días antes del próximo partido (si jugás el domingo, miércoles o jueves). Potencia y cambios de dirección: rápido, con pausas completas, terminás fresco.</li>
+        <li>Nunca hagas el físico en las 48 h antes del partido.</li>
+        <li>Si ese día también entrenás con el equipo, contame qué hicieron y ajustamos el volumen.</li>
+        <li>Semana con dos partidos: hacé solo el Día 1, con una serie menos en Fuerza.</li>
+      </ul>
+    </div>
+    <h2>Semáforo de la rodilla</h2>
+    <div class="panel">
+      <ul>
+        <li><b>Verde:</b> molestia de 0 a 2 sobre 10 y sin hinchazón al otro día. Seguí con el plan.</li>
+        <li><b>Amarillo:</b> 3 o 4 sobre 10, o la rodilla un poco hinchada a la mañana. Mismo peso, sacá la Pliometría ese día y avisame.</li>
+        <li><b>Rojo:</b> 5 sobre 10 o más, hinchazón que no baja o sensación de inestabilidad. Pará, avisale a tu kinesiólogo o traumatólogo y escribime.</li>
+        <li>En estocadas, frenadas y saltos la rodilla apunta al segundo dedo del pie, nunca hacia adentro. Los ejercicios a una pierna empezalos por la izquierda.</li>
+      </ul>
+    </div>
+    <h2>Tu test</h2>
+    <div class="panel">
+      <p style="margin:0">Salto simple a una pierna: saltá hacia adelante lo más lejos que puedas y caé en la misma pierna, aguantando 2 s sin apoyar la otra. Mejor de 3 intentos con cada pierna. Hacelo al empezar el Día 2 de la semana 1 y de la semana 4, solo si la rodilla está en verde. Buscamos que la izquierda llegue al 90% de la derecha o más.</p>
+      <div class="test">
+        <label for="t1d">Sem. 1 · derecha (cm)<input id="t1d" inputmode="decimal" placeholder="ej. 180"></label>
+        <label for="t1i">Sem. 1 · izquierda (cm)<input id="t1i" inputmode="decimal" placeholder="ej. 165"></label>
+        <label for="t4d">Sem. 4 · derecha (cm)<input id="t4d" inputmode="decimal" placeholder=""></label>
+        <label for="t4i">Sem. 4 · izquierda (cm)<input id="t4i" inputmode="decimal" placeholder=""></label>
+      </div>
+    </div>
+    <h2>Tu camino</h2>
+    <div class="road">
+      <div class="step now"><span class="m">Mes 1</span><div><b>Fuerza pesada y frenar bien</b><span>Fuerza a dos y a una pierna, aterrizajes, desaceleraciones y potencia con balón.</span></div></div>
+      <div class="step"><span class="m">Mes 2</span><div><b>Saltos a una pierna y cambios de dirección</b><span>Pliometría unilateral, cortes y reacción, hasta que confíes en la rodilla al 100%.</span></div></div>
+      <div class="step"><span class="m">Mes 3</span><div><b>Potencia y velocidad de partido</b><span>Primer paso explosivo, piques repetidos y fuerza máxima en temporada.</span></div></div>
+    </div>
+  </section>
+  <div class="foot"><span>Plan personalizado · Santi Dimperio · PF</span><button class="linkbtn" id="lock" type="button">Cerrar sesión</button></div>
+</main>
+
+<script>
+// [code, name, sets, reps, rest, cue]; sets/reps/rest can be [w1,w2,w3,w4]
+const DAYS = [
+ { w: "Día 1", t: "Día 1 · Fuerza pesada y aterrizajes", s: "48 h después del partido. Lo más pesado de la semana: aterrizajes primero, después fuerza a dos y a una pierna.", blocks: [
+   { n: "Pilar", k: "prep", ex: [
+     ["PP-09","Apertura de cadera y rotación torácica",2,"5 por lado","","Abrí la cadera y seguí la mano con el pecho."],
+     ["PR-12","Airplane con roller",2,"4 por lado","","Rodilla firme y alineada, girá la pelvis entera. Empezá por la pierna izquierda."],
+     ["PR-13","Isométrico de tobillo (empuje contra barra)",2,"20 s por lado","","Empujá fuerte con el antepié, rodilla adelante."],
+     ["PP-06","Abducción de cadera con banda",2,"12 por lado","","Pelvis quieta, la rodilla no se va hacia adentro."] ]},
+   { n: "Preparación del movimiento", k: "prep", ex: [
+     ["HM-02","Skipping dinámico con banda en la cintura",2,"15 m","30 s","Rodillas arriba, pisá debajo de la cadera."],
+     ["HM-13","Drop jump en el lugar",2,"4","45 s","Caé en silencio, rodillas alineadas con los pies. Frená 2 s."] ]},
+   { n: "Pliometría", k: "main", ex: [
+     [["HM-18","HM-18","HM-08","HM-13"],["Caída en split desde el cajón","Caída en split desde el cajón","Drop jump + salto al cajón","Drop jump en el lugar"],3,["3 por lado","4 por lado","4","4"],"75 s",["Cajón bajo. Caé firme y aguantá 2 s: la izquierda tiene que caer igual que la derecha.","Mismo cajón, caída más rápida y freno firme.","Tocá el piso y volá al cajón: contacto corto.","Pocas y perfectas."]] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FU-32","Sentadilla al cajón con barra (box squat)",4,["5","5","4","5"],"2–3 min",["Sentate controlado, 1 s en el cajón y subí explosivo. Dejá 3 repeticiones en reserva.","Subí el peso: 2 en reserva.","La más pesada del mes: 1–2 en reserva. Siempre rápido para arriba.","Mismo peso de la semana 2."]],
+     ["FU-17","Peso muerto tradicional",4,["5","5","4","5"],"2–3 min","Barra pegada a las piernas, empujá el piso. Espalda neutra."],
+     ["FU-08","Estocada trasera en déficit + subida al cajón",3,"6 por lado","90 s","Empezá con la izquierda. Bajá en 3 s y subí al cajón sin impulso."],
+     ["PR-09","Patada de isquio sobre pelota de pilates",3,["8","10","10","8"],"60 s","Cadera arriba todo el tiempo, traé la pelota con los talones."],
+     ["FU-20","Press inclinado con mancuernas",3,["6","6","5","6"],"90 s","En serie con el remo. Bajá controlado, subí rápido."],
+     ["FU-18","Remo a un brazo",3,"6 por lado","90 s","Codo atrás y rápido, volvé lento."] ]},
+   { n: "Rotación y core", k: "core", ex: [
+     ["ZM-13","Pallof press con banda",3,"8 por lado","30 s","Empujá al frente y aguantá 2 s. Que la banda no te gire."],
+     ["ZM-07","Copenhagen plank",3,["20 s por lado","25 s por lado","25 s por lado","20 s por lado"],"30 s","Cuerpo en línea. Clave para cuidar la ingle en el fútbol."] ]},
+   { n: "Resistencia", k: "cond", ex: [
+     ["","Bici: piques cortos",1,["6 × 15 s fuerte / 45 s suave","8 × 15 s fuerte / 45 s suave","8 × 15 s fuerte / 45 s suave","5 × 15 s fuerte / 45 s suave"],"","Sin impacto para la rodilla. Los 15 s a tope, como un pique en el partido."] ]},
+   { n: "Regeneración", k: "prep", ex: [
+     ["","Roller: cuádriceps, isquios, gemelos y glúteos",1,"40 s por zona","","Lento, frená en los puntos tensos."],
+     ["","Respiración acostado con piernas arriba",1,"6 respiraciones","","Inhalá 4 s por la nariz, soltá 6 s por la boca."] ]} ]},
+ { w: "Día 2", t: "Día 2 · Potencia y cambio de dirección", s: "3 o 4 días antes del partido. Rápido, explosivo y con pausas completas: tenés que terminar fresco.", blocks: [
+   { n: "Pilar", k: "prep", ex: [
+     ["PP-03","Avioncito con apertura de cadera",2,"4 por lado","","Firme sobre la pierna de apoyo, girá la pelvis entera."],
+     ["PR-06","Sentadilla profunda con talones elevados",2,"6","","Bajá lento, 2 s abajo, subí empujando el piso."],
+     ["PR-04","Estocada lateral deslizada con banda",2,"6 por lado","","Cadera atrás, la rodilla de apoyo sobre el pie."],
+     ["ZM-09","Plancha con mini band (abducción de cadera)",2,"6 por lado","","Cadera quieta como una mesa."] ]},
+   { n: "Preparación del movimiento", k: "prep", ex: [
+     ["HM-12","Fast switch con banda",2,"10 s","30 s","Cambios rápidos, cuerpo bajo y estable."],
+     ["HM-03","Footwork en step",2,"10 s","30 s","Pies rápidos y livianos, apoyos cortos."] ]},
+   { n: "Balón medicinal", k: "main", ex: [
+     ["FU-30","Lanzamiento de pecho con contramovimiento",3,"5","60 s","Bajá rápido y soltá con todo: piernas y brazos juntos."],
+     ["FU-02","Lanzamiento overhead + lateral",3,"4 + 4 por lado","60 s","El lateral arranca en el pie de atrás y la cadera."] ]},
+   { n: "Pliometría", k: "main", ex: [
+     [["HM-04","HM-04","HM-22","HM-04"],["Saltos de vallas + salto al cajón","Saltos de vallas + salto al cajón","Bound lateral continuo resistido con banda","Saltos de vallas + salto al cajón"],3,["4","5","4 por lado","4"],"90 s",["A dos piernas. Rebote corto en las vallas y caída firme en el cajón.","Un salto más, mismo control.","Ahora de un pie al otro: empujá de lado y frená firme cada caída.","Pocas y perfectas."]] ]},
+   { n: "Habilidades de movimiento", k: "main", ex: [
+     ["HM-27","Doble desplazamiento lateral con freno + crossover y sprint",3,"1 por lado","60 s","Frená con la pierna de afuera, bajo y ancho, y salí con todo."],
+     ["HM-20",["Coordinación lateral + crossover + sprint","Coordinación lateral + crossover + sprint","Crossover + sprint reactivo (a una seña)","Coordinación lateral + crossover + sprint"],3,"1 por lado","60 s",["La pierna de adentro empuja el piso, la de afuera cruza rápida.","Más velocidad en el cruce.","Que alguien te señale el lado: salís sin saber, como en el partido.","Pocas y a tope."]] ]},
+   { n: "Fuerza", k: "main", ex: [
+     ["FU-01","Push press con barra landmine",4,["4","4","3","4"],"2 min","Flexioná apenas y empujá con las piernas: la barra sube rápido."],
+     ["FU-27","Desaceleración en estocada lateral con mancuerna",3,"5 por lado","75 s","Caé y frená en un tiempo, la rodilla sobre el pie."],
+     ["FU-26","Desaceleración en estocada frontal con mancuernas",3,"5 por lado","75 s","Freno firme y pecho alto. La rodilla no se va hacia adentro."],
+     ["FU-11","Tracción vertical a un brazo en semi arrodillado",3,"6 por lado","75 s","Codo al bolsillo, rápido. Volvé en 2 s."] ]},
+   { n: "Rotación y core", k: "core", ex: [
+     ["ZM-15","Landmine rotación",3,"5 por lado","45 s","El giro sale de la cadera y del pie de atrás, los brazos acompañan."],
+     ["ZM-12","Farmer walk con mancuerna arriba",2,"15 m por lado","45 s","Brazo estirado, el tronco no se inclina."] ]},
+   { n: "Regeneración", k: "prep", ex: [
+     ["","Roller: cuádriceps, isquios, gemelos y glúteos",1,"40 s por zona","","Lento, frená en los puntos tensos."],
+     ["","Respiración acostado con piernas arriba",1,"6 respiraciones","","Inhalá 4 s por la nariz, soltá 6 s por la boca."] ]} ]}
+];
+const WEEK = {
+  1: ["Base", "Aprendé los ejercicios y encontrá tus pesos. Terminá cada serie de Fuerza con 3 repeticiones en reserva. Saltos: pocos y perfectos."],
+  2: ["Construir", "Subí el peso en Fuerza (2 repeticiones en reserva). Todo lo explosivo, con máxima intención."],
+  3: ["Apretar", "La semana más exigente: una serie más en los bloques principales y lo más pesado del mes. Si la rodilla está en amarillo, no subas."],
+  4: ["Descarga", "Una serie menos y el mismo peso de la semana 2. Repetí el test y llegás fresco al mes 2."]
+};
+const KEY = "pf-lucas-m1";
+let done = {}, week = 1, sess = 0, openVid = null, logs = {};
+try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d) { done = d.done || {}; week = d.week || 1; sess = d.sess || 0; logs = d.logs || {}; } } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ done, week, sess, logs })); } catch (e) {} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const check = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+const pick = (v, w) => Array.isArray(v) ? v[w - 1] : v;
+
+function setsFor(w, k, base) {
+  if (Array.isArray(base)) return base[w - 1];
+  if (w === 3 && k === "main") return base + 1;
+  if (w === 4 && k !== "prep" && k !== "cond") return Math.max(1, base - 1);
+  return base;
+}
+const dayOf = (s, w = week) => ((w === 1 && typeof DAYS_W1 !== "undefined") ? DAYS_W1 : DAYS)[s];
+function keyOf(w, s, b, i) { return `${w}-${s}-${b}-${i}`; }
+function prevTxt(name) {
+  for (let w = week - 1; w >= 1; w--) { const d = dayOf(sess, w); if (!d) continue;
+    for (let bi = 0; bi < d.blocks.length; bi++) { const ex = d.blocks[bi].ex;
+      for (let i = 0; i < ex.length; i++) { const v = logs[keyOf(w, sess, bi, i)]; if (v && v.trim() && pick(ex[i][1], w) === name) return `<div class="prev">Semana ${w}: <b>${esc(v)}</b></div>`; } } }
+  return "";
+}
+function count(w, s) { let t = 0, n = 0; dayOf(s, w).blocks.forEach((b, bi) => b.ex.forEach((e, i) => { t++; if (done[keyOf(w, s, bi, i)]) n++; })); return [n, t]; }
+
+function render() {
+  document.getElementById("weeks").innerHTML = [1, 2, 3, 4].map(w =>
+    `<button class="wk" type="button" data-w="${w}" aria-pressed="${w === week}">${w}<small>${WEEK[w][0]}</small></button>`).join("");
+  document.getElementById("tabs").innerHTML = DAYS.map((_, s) => {
+    const [n, t] = count(week, s);
+    return `<button class="tab" role="tab" id="tab${s}" type="button" data-s="${s}" aria-selected="${s === sess}"><span class="n">${DAYS[s].w}</span><span class="p">${n}/${t}</span></button>`;
+  }).join("");
+  const wk = WEEK[week];
+  document.getElementById("focus").innerHTML = `<div class="focus${week === 4 ? " deload" : ""}"><strong>Semana ${week} · ${wk[0]}</strong>${wk[1]}</div>`;
+  const d = dayOf(sess), [n, t] = count(week, sess);
+  let html = `<div class="dayhead"><h2>${d.t}</h2><p>${d.s}</p><div class="bar" aria-hidden="true"><i style="width:${Math.round(n / t * 100)}%"></i></div></div>`;
+  d.blocks.forEach((b, bi) => {
+    html += `<div class="block"><h3><span>${b.n}</span><span>${b.ex.length} ${b.ex.length === 1 ? "ejercicio" : "ejercicios"}</span></h3><div class="list">`;
+    b.ex.forEach((e, i) => {
+      const code = pick(e[0], week), name = pick(e[1], week), sets = e[2], reps = e[3], rest = e[4], cue = pick(e[5], week), k = keyOf(week, sess, bi, i), isDone = !!done[k], open = openVid === k;
+      const sv = setsFor(week, b.k, sets), rv = pick(reps, week), pv = pick(rest, week);
+      const rx = (sv > 1 ? `${sv} × ${esc(rv)}` : esc(rv)) + (pv ? ` <span>· pausa ${esc(pv)}</span>` : "");
+      html += `<div class="ex${isDone ? " is-done" : ""}"><button class="chk" type="button" id="c-${k}" data-k="${k}" aria-pressed="${isDone}" aria-label="Marcar ${esc(name)} como hecho">${check}</button>
+        <div class="body"><div class="row1">${code ? `<span class="code">${code}</span>` : ""}<span class="name">${esc(name)}</span></div>
+        <div class="rx">${rx}</div><div class="cue">${esc(cue)}</div>
+        ${(b.n.startsWith("Fuerza") || /farmer/i.test(name)) && code !== "PR-09" ? `<label class="log">Carga usada <input type="text" data-log="${k}" value="${esc(logs[k] || "")}" placeholder="ej. 8 kg"></label>${prevTxt(name)}` : ""}
+        ${code ? `<button class="vid" type="button" data-v="${k}" aria-expanded="${open}"><span class="play"></span>${open ? "Cerrar video" : "Ver video"}</button>
+        ${open ? `<video class="player" data-code="${code}" controls playsinline muted loop autoplay></video><div class="vmsg" aria-live="polite">Cargando video…</div>` : ""}` : ""}</div></div>`;
+    });
+    html += `</div></div>`;
+  });
+  html += reportBox();
+  document.getElementById("day").innerHTML = html;
+  const v = document.querySelector("#day video.player"); if (v) loadVideo(v);
+}
+const blobCache = {};
+async function loadVideo(v) {
+  const code = v.dataset.code, msg = v.nextElementSibling;
+  try {
+    if (!blobCache[code]) {
+      const r = await fetch("../../videos/" + code + ".mp4"); if (!r.ok) throw new Error(r.status);
+      blobCache[code] = URL.createObjectURL(new Blob([await r.arrayBuffer()], { type: "video/mp4" }));
+    }
+    if (!v.isConnected) return;
+    v.src = blobCache[code]; msg.textContent = "";
+    const p = v.play(); if (p && p.catch) p.catch(() => { msg.textContent = "Tocá play para verlo."; });
+  } catch (e) { if (msg) msg.textContent = "No se pudo cargar el video. Revisá tu conexión y volvé a tocar Ver video."; }
+}
+document.querySelector(".nav").addEventListener("click", e => {
+  const w = e.target.closest(".wk"), t = e.target.closest(".tab");
+  if (w) { week = +w.dataset.w; openVid = null; save(); render(); document.querySelector(`.wk[data-w="${week}"]`).focus(); }
+  if (t) { sess = +t.dataset.s; openVid = null; save(); render(); document.getElementById("tab" + sess).focus(); }
+});
+document.getElementById("day").addEventListener("click", e => {
+  const v = e.target.closest(".vid");
+  if (v) { openVid = openVid === v.dataset.v ? null : v.dataset.v; render(); const a = document.querySelector(`.vid[data-v="${v.dataset.v}"]`); if (a) a.focus(); return; }
+  const b = e.target.closest(".chk"); if (!b) return;
+  const k = b.dataset.k; if (done[k]) delete done[k]; else done[k] = 1;
+  save(); render(); const a = document.getElementById("c-" + k); if (a) a.focus();
+});
+document.getElementById("day").addEventListener("input", e => { const i = e.target.closest("[data-log]"); if (i) { logs[i.dataset.log] = i.value; save(); } });
+["t1d", "t1i", "t4d", "t4i"].forEach(id => {
+  const el = document.getElementById(id);
+  try { el.value = localStorage.getItem(KEY + "-" + id) || ""; } catch (e) {}
+  el.addEventListener("input", () => { try { localStorage.setItem(KEY + "-" + id, el.value); } catch (e) {} });
+});
+
+const lang = 'es', PROG = 'Plan Mes 1', WA = "5491164122965", TR = {'title': '¿Terminaste la sesión?', 'hint': 'Mandale el resumen a Santi por WhatsApp: ve lo que hiciste y te ajusta las cargas.', 'name': 'Tu nombre', 'rpe': 'Esfuerzo de la sesión (1 = muy fácil · 10 = máximo)', 'com': 'Comentario (opcional): cómo te sentiste, alguna molestia…', 'btn': 'Enviar resumen a Santi', 'week': 'Semana', 'done': 'Hecho', 'ex': 'ejercicios', 'loads': 'Cargas', 'miss': 'Faltó', 'eff': 'Esfuerzo', 'cm': 'Comentario', 'load': 'Carga usada', 'ph': 'ej. 8 kg', 'needname': 'Escribí tu nombre para enviar el resumen.'};
+let rpt = { name: "Lucas", rpe: 0, com: "" };
+try { rpt.name = localStorage.getItem(KEY + "-name") || rpt.name; } catch (e) {}
+function reportBox() {
+  return `<section class="report" aria-labelledby="rp-h"><h3 id="rp-h">${TR.title}</h3><p>${TR.hint}</p>
+    <label>${TR.name}<input id="rp-name" autocomplete="name" value="${esc(rpt.name)}"></label>
+    <div><div style="font-size:14px;font-weight:600;margin-bottom:6px">${TR.rpe}</div><div class="rpe" role="group" aria-label="${TR.rpe}">${[1,2,3,4,5,6,7,8,9,10].map(n => `<button type="button" data-rpe="${n}" aria-pressed="${rpt.rpe === n}">${n}</button>`).join("")}</div></div>
+    <label>${TR.com}<textarea id="rp-com">${esc(rpt.com)}</textarea></label>
+    <button class="send" type="button" id="rp-send">${TR.btn}</button><div class="err" id="rp-err" aria-live="polite"></div></section>`;
+}
+function reportText() {
+  const d = dayOf(sess), L = [], loads = [], miss = []; let n = 0, t = 0;
+  d.blocks.forEach((b, bi) => b.ex.forEach((e, i) => { const k = keyOf(week, sess, bi, i); t++; if (done[k]) n++; else miss.push(pick(e[1], week)); if (typeof logs !== "undefined" && logs[k]) loads.push(pick(e[1], week) + ": " + logs[k]); }));
+  L.push("✅ " + rpt.name.trim() + " · " + PROG);
+  L.push(TR.week + " " + week + " · " + d.t);
+  L.push(TR.done + ": " + n + "/" + t + " " + TR.ex);
+  if (loads.length) L.push(TR.loads + ": " + loads.join(" · "));
+  if (miss.length) L.push(TR.miss + ": " + miss.join(", "));
+  if (rpt.rpe) L.push(TR.eff + ": " + rpt.rpe + "/10");
+  if (rpt.com.trim()) L.push(TR.cm + ": " + rpt.com.trim());
+  return L.join("\n");
+}
+document.getElementById("day").addEventListener("input", e => {
+  const lg = e.target.closest("[data-log]"); if (lg) { logs[lg.dataset.log] = lg.value; save(); return; }
+  if (e.target.id === "rp-name") { rpt.name = e.target.value; try { localStorage.setItem(KEY + "-name", rpt.name); } catch (x) {} }
+  if (e.target.id === "rp-com") rpt.com = e.target.value;
+});
+document.getElementById("day").addEventListener("click", e => {
+  const r = e.target.closest("[data-rpe]");
+  if (r) { rpt.rpe = +r.dataset.rpe; document.querySelectorAll("[data-rpe]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.rpe === rpt.rpe))); return; }
+  if (e.target.id === "rp-send") {
+    if (!rpt.name.trim()) { document.getElementById("rp-err").textContent = TR.needname; document.getElementById("rp-name").focus(); return; }
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(reportText()), "_blank", "noopener");
+  }
+});
+render();
+
+const UNTIL = new Date("2026-11-23T23:59:00-03:00");
+document.getElementById("until").textContent = "acceso hasta el " + UNTIL.toLocaleDateString("es-AR", { day: "numeric", month: "long", timeZone: "America/Argentina/Buenos_Aires" });
+function expired() { return Date.now() > UNTIL.getTime(); }
+if (expired()) { document.getElementById("ended").hidden = false; }
+setInterval(() => { if (expired()) document.getElementById("ended").hidden = false; }, 60000);
+const CODE_HASH = "ec7bed0e4b30f268ae0ce2d603498644b81b957790d32f72cf0900ee73263202";
+async function sha(t) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+(function () {
+  const g = document.getElementById("gate"); let ok = false;
+  try { ok = localStorage.getItem(KEY + "-ok") === CODE_HASH; } catch (e) {}
+  if (!ok && !expired()) g.hidden = false;
+  document.getElementById("gform").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const hv = await sha(document.getElementById("gcode").value.trim().toUpperCase());
+    if (hv === CODE_HASH) { try { localStorage.setItem(KEY + "-ok", hv); } catch (e) {} g.hidden = true; }
+    else document.getElementById("gerr").textContent = "Ese código no funcionó. Revisá el mensaje y probá de nuevo.";
+  });
+  document.getElementById("lock").addEventListener("click", () => { try { localStorage.removeItem(KEY + "-ok"); } catch (e) {} g.hidden = false; document.getElementById("gcode").value = ""; });
+})();
+</script>
+
+</body></html>

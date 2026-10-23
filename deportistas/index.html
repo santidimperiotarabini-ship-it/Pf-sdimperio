@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#0a0b0d">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Preparación física para deportistas</title>
+<meta name="description" content="Plan de preparación física personalizado para deportistas: fuerza, potencia, velocidad y vuelta a la competencia después de una lesión.">
+<meta property="og:title" content="Preparación física para deportistas · Santi Dimperio">
+<meta property="og:description" content="Más rápido, más fuerte y más seguro en tu deporte.">
+<meta property="og:image" content="../img/squat.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Athletes landing: same dark look as the tennis home, single column — hero, who it's for, how it works, price, final call. */
+:root {
+  --bg: #0a0b0d; --surface: #131519; --ink: #f2f3ef; --muted: #9a9fa6; --line: rgba(255,255,255,.1);
+  --ball: #ff5a36; --ball-ink: #ffffff;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 20px; }
+.disp { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .9; margin: 0; text-wrap: balance; }
+.eyebrow { font-family: var(--f-display); font-weight: 600; font-size: 15px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--f-display); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; text-decoration: none; color: var(--ink); }
+.ballmark { width: 12px; height: 12px; border-radius: 50%; background: var(--ball); }
+header.hero { position: relative; border-bottom: 1px solid var(--line); overflow: hidden; }
+header.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; opacity: .32; filter: saturate(.7); }
+header.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,13,.2), var(--bg) 92%); }
+header.hero .wrap { position: relative; z-index: 1; padding-block: calc(24px + env(safe-area-inset-top, 0px)) 64px; display: grid; gap: 22px; }
+.hero h1 { font-size: clamp(52px, 13vw, 116px); margin-top: 48px; }
+.hero h1 em { font-style: normal; color: var(--ball); }
+.lede { max-width: 52ch; margin: 0; font-size: 19px; color: #d5d8dc; }
+.sports { display: flex; flex-wrap: wrap; gap: 8px; }
+.sports span { border: 1px solid var(--line); background: rgba(19,21,25,.8); border-radius: 999px; padding: 4px 12px; font-size: 15px; font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-family: var(--f-display); font-weight: 700; font-size: 20px; letter-spacing: .1em; text-transform: uppercase; padding: 14px 24px; border-radius: 2px; min-height: 54px; border: 1px solid transparent; }
+.btn.ball { background: var(--ball); color: var(--ball-ink); }
+.btn.ghost { border-color: rgba(255,255,255,.35); color: var(--ink); }
+.btn:focus-visible { outline: 2px solid var(--ball); outline-offset: 3px; }
+section { padding-block: 80px 0; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(40px, 8vw, 76px); overflow-wrap: break-word; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (max-width: 820px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); padding: 26px 22px; display: grid; gap: 10px; align-content: start; }
+.card .n { font-family: var(--f-display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--ball); }
+.card h3 { font-family: var(--f-display); font-weight: 800; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0; }
+.card p { margin: 0; color: #c9ccd1; }
+.card.star { outline: 1px solid var(--ball); outline-offset: -1px; }
+.tag { justify-self: start; background: var(--ball); color: var(--ball-ink); font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+.offer { border: 1px solid var(--line); background: var(--surface); padding: 30px 24px; display: grid; gap: 18px; max-width: 620px; }
+.offer h3 { font-family: var(--f-display); font-weight: 800; font-size: clamp(34px, 7vw, 46px); line-height: .95; text-transform: uppercase; margin: 0; }
+.price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-block: 8px; border-block: 1px solid var(--line); }
+.price b { font-family: var(--f-display); font-weight: 800; font-size: 56px; line-height: 1; color: var(--ball); }
+.price span { color: var(--muted); font-size: 15px; }
+.offer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.offer li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: baseline; color: #d5d8dc; }
+.offer li::before { content: ""; width: 14px; height: 2px; background: var(--ball); transform: translateY(-4px); }
+.note { color: var(--muted); font-size: 15px; margin: 0; max-width: 62ch; }
+.final { margin-top: 80px; border-top: 1px solid var(--line); }
+.final .wrap { padding-block: 72px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; justify-items: start; }
+.final .cta-row { max-width: 100%; }
+.final h2 { font-size: clamp(44px, 12vw, 110px); max-width: 100%; overflow-wrap: break-word; }
+.final h2 em { font-style: normal; color: var(--ball); }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+footer .wrap { padding-block: 24px 32px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+footer a { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="../img/squat.jpg" alt="" width="760" height="1350">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="ballmark"></span>Santi Dimperio · PF</a>
+    <h1 class="disp">Más rápido, más fuerte, <em>más seguro</em></h1>
+    <p class="lede">El método que uso con deportistas profesionales, adaptado a tu deporte. Un plan armado para vos, con video de cada ejercicio y seguimiento conmigo.</p>
+    <div class="sports" aria-label="Deportes"><span>Fútbol</span><span>Pádel</span><span>Hockey</span><span>Rugby</span><span>Básquet</span><span>Vóley</span><span>Running</span><span>y más</span></div>
+    <div class="cta-row">
+      <a class="btn ball" href="evaluacion/">Hacer la evaluación</a>
+      <a class="btn ghost js-wa" href="https://wa.me/5491164122965">Escribime</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Para quién es</div>
+    <h2 class="disp">Tres situaciones, un mismo método</h2>
+  </div>
+  <div class="cards">
+    <article class="card star">
+      <span class="tag">Lo más pedido</span>
+      <h3>Volver después de una lesión</h3>
+      <p>Ya tenés el alta, ya estás jugando, pero no te sentís seguro al 100%. Trabajamos caídas, saltos, frenadas y cambios de dirección de menos a más, hasta que confíes en tu cuerpo otra vez.</p>
+    </article>
+    <article class="card">
+      <h3>Rendir más en tu deporte</h3>
+      <p>Fuerza, potencia y velocidad aplicadas a lo que pide tu deporte: arrancar, frenar, saltar, girar y aguantar el partido entero.</p>
+    </article>
+    <article class="card">
+      <h3>Prevenir lesiones</h3>
+      <p>Estabilidad, equilibrio entre lados y cargas inteligentes en plena temporada, para llegar entero a los partidos que importan.</p>
+    </article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 class="disp">Simple y a tu medida</h2>
+  </div>
+  <div class="cards">
+    <article class="card"><span class="n">1</span><h3>Evaluación</h3><p>Me contás tu deporte, tu calendario, tus lesiones y cuánto tiempo tenés. Te lleva unos minutos.</p></article>
+    <article class="card"><span class="n">2</span><h3>Tu plan</h3><p>Te armo el plan en tu propia página, con video de cada ejercicio, series, cargas y progresión semana a semana.</p></article>
+    <article class="card"><span class="n">3</span><h3>Seguimiento</h3><p>Después de cada sesión me mandás tu reporte por WhatsApp y ajusto el plan según tus partidos y cómo te sentís.</p></article>
+  </div>
+</div></section>
+
+<section id="plan"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Precio</div>
+    <h2 class="disp">Plan personalizado</h2>
+  </div>
+  <div class="offer">
+    <h3>Seguimiento 1&nbsp;a&nbsp;1</h3>
+    <div class="price"><b>$80.000</b><span>por mes · sin permanencia</span></div>
+    <div class="price"><b>US$60</b><span>por mes · si vivís fuera de Argentina</span></div>
+    <ul>
+      <li>Evaluación inicial de tu deporte, objetivos y lesiones</li>
+      <li>Plan semanal de 2 a 4 días, en tu propia página</li>
+      <li>Video de cada ejercicio</li>
+      <li>Ajustes según tu calendario de partidos</li>
+      <li>Seguimiento por WhatsApp y una llamada por mes</li>
+    </ul>
+    <a class="btn ball" href="evaluacion/">Empezar con la evaluación</a>
+    <p class="note">Si estás en rehabilitación o tenés dolor e inflamación seguido, el plan complementa el trabajo de tu kinesiólogo o médico, no lo reemplaza.</p>
+  </div>
+</div></section>
+</main>
+
+<section class="final"><div class="wrap">
+  <h2 class="disp">¿Arranca<em>mos?</em></h2>
+  <p class="lede">Hacé la evaluación y te cuento cómo armaría tu plan.</p>
+  <div class="cta-row">
+    <a class="btn ball" href="evaluacion/">Hacer la evaluación</a>
+    <a class="btn ghost js-wa" href="https://wa.me/5491164122965">Escribime por WhatsApp</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>Santi Dimperio · PF · <a href="https://instagram.com/PFsdimperio">@PFsdimperio</a></span>
+  <a href="https://tennis-fitness.pages.dev/">¿Jugás al tenis? Mirá Tennis Performance</a>
+</div></footer>
+
+<script>
+document.querySelectorAll(".js-wa").forEach(a => {
+  a.href = "https://wa.me/5491164122965?text=" + encodeURIComponent("¡Hola Santi! Quiero info del plan para deportistas 💪");
+  a.target = "_blank"; a.rel = "noopener";
+});
+</script>
+</body>
+</html>

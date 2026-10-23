@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="theme-color" content="#0a0b0d"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Evaluación inicial para deportistas: unos minutos para armar tu plan de preparación física."><meta property="og:title" content="Evaluación inicial · Deportistas"><meta property="og:description" content="Contame de vos y tu deporte para armar tu plan."><meta property="og:image" content="../../img/squat.jpg"><style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Evaluación Deportistas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: court-blue header, then one question card at a time with big tap targets and a fixed next/back bar. */
+:root {
+  --bg: #0a0b0d; --surface: #131519; --ink: #f2f3ef; --muted: #9a9fa6; --line: rgba(255,255,255,.14);
+  --court: #0a0b0d; --court-ink: #f2f3ef; --chalk: rgba(255,255,255,.14);
+  --ball: #ff5a36; --ball-ink: #ffffff; --sel: rgba(255,90,54,.14); --err: #ff8a80;
+  color-scheme: dark;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.45; }
+.wrap { max-width: 560px; margin: 0 auto; padding-inline: 16px; }
+.court { background: var(--court); border-bottom: 1px solid var(--line); color: var(--court-ink); position: relative; overflow: hidden; }
+.court::before { content: ""; position: absolute; inset: 10px 16px; border: 2px solid var(--chalk); pointer-events: none; }
+.court .wrap { position: relative; padding-block: 22px 18px; }
+.brand { font-family: var(--f-display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 13px; display: flex; gap: 8px; align-items: center; opacity: .9; }
+.ballmark { width: 11px; height: 11px; border-radius: 50%; background: var(--ball); }
+.court h1 { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; font-size: 30px; line-height: 1; margin: 8px 0 0; }
+.prog { display: flex; gap: 4px; margin-top: 14px; }
+.prog i { flex: 1; height: 5px; border-radius: 9px; background: var(--chalk); }
+.prog i.on { background: var(--ball); }
+main.wrap { padding-block: 22px 120px; }
+.step-n { font-family: var(--f-display); font-weight: 600; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 30px; line-height: 1.05; margin: 4px 0 6px; text-wrap: balance; }
+.hint { color: var(--muted); margin: 0 0 16px; font-size: 15px; }
+.q { margin-top: 18px; }
+.q > label, .q > .ql { display: block; font-weight: 700; margin-bottom: 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { font: inherit; font-size: 16px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 12px 16px; cursor: pointer; min-height: 48px; text-align: left; }
+.opts.col { display: grid; }
+.opt[aria-pressed="true"] { background: var(--sel); border-color: var(--ball); font-weight: 700; }
+input[type=text], input[type=number], textarea { font: inherit; width: 100%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 12px 14px; min-height: 48px; }
+textarea { min-height: 96px; resize: vertical; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.two > div { min-width: 0; }
+input[type=range] { width: 100%; accent-color: var(--ball); }
+.scale { display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; }
+.err { color: var(--err); font-size: 15px; margin-top: 12px; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--bg); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.bar .wrap { display: flex; gap: 10px; padding-block: 12px; }
+.btn { font: inherit; font-weight: 700; font-size: 17px; border-radius: 12px; padding: 13px 18px; cursor: pointer; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); min-height: 50px; }
+.btn.main { flex: 1; background: var(--ball); border-color: var(--ball); color: var(--ball-ink); }
+.btn.ball { background: var(--ball); border-color: var(--ball); color: var(--ball-ink); }
+.opt:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--ball); outline-offset: 2px; }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; white-space: pre-wrap; font-size: 15px; max-height: 50vh; overflow: auto; }
+.done-actions { display: grid; gap: 10px; margin-top: 14px; }
+.done-actions a { text-decoration: none; text-align: center; }
+.linkbtn { font: inherit; font-size: 14px; background: none; border: 0; padding: 0 0 12px; color: var(--muted); text-decoration: underline; cursor: pointer; }
+.ok { color: var(--muted); font-size: 15px; min-height: 1.4em; }
+</style>
+</head><body>
+
+<header class="court"><div class="wrap">
+  <div class="brand"><span class="ballmark"></span>Santi Dimperio · PF · Deportistas</div>
+  <h1>Evaluación inicial</h1>
+  <div class="prog" id="prog" aria-hidden="true"></div>
+</div></header>
+
+<main class="wrap" id="app" aria-live="polite"></main>
+
+<div class="bar" id="bar"><div class="wrap">
+  <button class="btn" id="back" type="button">Atrás</button>
+  <button class="btn main" id="next" type="button">Siguiente</button>
+</div></div>
+
+<script>
+const ZONAS = ["Hombro","Codo","Muñeca","Cuello","Espalda alta","Zona lumbar","Cadera / ingle","Isquiotibiales","Cuádriceps","Rodilla","Gemelo / tendón de Aquiles","Tobillo / pie","Otra"];
+const STEPS = [
+  { t: "Contanos de vos", h: "Tus datos básicos.", f: [
+    { k: "nombre", l: "Nombre y apellido", type: "text", req: 1, ac: "name" },
+    { pair: [ { k: "edad", l: "Edad", type: "number" }, { k: "pierna", l: "Pierna dominante", type: "one", o: ["Derecha","Izquierda"] } ] },
+    { pair: [ { k: "altura", l: "Altura (cm)", type: "number" }, { k: "peso", l: "Peso (kg)", type: "number" } ] } ]},
+  { t: "Tu deporte", f: [
+    { pair: [ { k: "deporte", l: "Deporte", type: "text", req: 1 }, { k: "posicion", l: "Posición o rol", type: "text" } ] },
+    { k: "nivel", l: "Nivel", type: "one", col: 1, o: ["Recreativo","Amateur que compite","Semiprofesional","Profesional"], req: 1 },
+    { k: "diasDeporte", l: "Días que entrenás o jugás tu deporte por semana", type: "one", o: ["1-2","3-4","5-6","Todos"], req: 1 },
+    { k: "compite", l: "¿Cada cuánto competís?", type: "one", col: 1, o: ["No compito","Todas las semanas","Cada 2 semanas","1 vez al mes o menos"] },
+    { k: "temporada", l: "¿En qué momento de la temporada estás?", type: "one", o: ["Pretemporada","En competencia","Fuera de temporada"] } ]},
+  { t: "Tu entrenamiento físico", f: [
+    { k: "diasFisico", l: "¿Cuántos días podés entrenar físico?", type: "one", o: ["2","3","4"], req: 1 },
+    { k: "tiempo", l: "Tiempo por sesión", type: "one", o: ["30 min","45 min","60 min","Más de 60"], req: 1 },
+    { k: "lugar", l: "¿Dónde entrenás?", type: "one", col: 1, o: ["Gimnasio completo","En casa con algo de material","Solo con mi peso corporal"], req: 1 } ]},
+  { t: "Tus objetivos", h: "Elegí hasta 3.", f: [
+    { k: "objetivos", type: "many", max: 3, col: 1, req: 1, o: ["Volver a competir seguro después de una lesión","Prevenir lesiones","Ganar fuerza y potencia","Ser más rápido y cambiar mejor de dirección","Saltar más y caer mejor","Mejorar la resistencia","Rendir mejor en competencia","Mejorar movilidad"] } ]},
+  { t: "Molestias y lesiones", h: "Tocá dónde te molesta algo, actual o seguido. Si no tenés nada, tocá «Ninguna».", f: [
+    { k: "zonas", type: "many", none: "Ninguna", o: ["Ninguna", ...ZONAS], req: 1 },
+    { k: "lado", l: "¿De qué lado?", type: "one", o: ["Izquierdo","Derecho","Los dos"], show: s => hasPain(s) },
+    { k: "dolor", l: "¿Cuánto molesta? (0 nada · 10 máximo)", type: "range", show: s => hasPain(s) },
+    { k: "cuando", l: "¿Cuándo aparece?", type: "many", o: ["Compitiendo","Entrenando","Después de entrenar","En la vida diaria"], show: s => hasPain(s) },
+    { k: "inflama", l: "¿Se inflama o se hincha?", type: "one", o: ["No","A veces","Seguido"], show: s => hasPain(s) },
+    { k: "lesiones", l: "¿Tuviste alguna lesión o cirugía importante? Contanos cuál y hace cuánto (opcional)", type: "area" },
+    { k: "rehab", l: "Si tuviste una lesión o cirugía reciente: ¿en qué etapa estás?", type: "one", col: 1, o: ["En rehabilitación con kinesiólogo","Con el alta, volviendo a competir","Con el alta hace más de 6 meses","No aplica"] } ]},
+  { t: "Salud general", f: [
+    { k: "condicion", l: "¿Alguna condición médica o medicación que deba saber?", type: "one", o: ["No","Sí"], req: 1 },
+    { k: "condicionTxt", l: "¿Cuál?", type: "text", show: s => s.condicion === "Sí" },
+    { k: "sueno", l: "¿Cómo dormís?", type: "one", o: ["Muy bien","Bien","Regular","Mal"] },
+    { k: "estres", l: "Nivel de estrés", type: "one", o: ["Bajo","Medio","Alto"] },
+    { k: "extra", l: "¿Algo más que quieras contarme? (opcional)", type: "area" } ]}
+];
+function hasPain(s) { return Array.isArray(s.zonas) && s.zonas.length && !s.zonas.includes("Ninguna"); }
+
+const KEY = "tp-eval-dep-v1";
+let st = {}, step = 0;
+try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d) { st = d.st || {}; step = Math.min(d.step || 0, STEPS.length); } } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ st, step })); } catch (e) {} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const app = document.getElementById("app");
+
+function field(f) {
+  if (f.pair) return `<div class="two">${f.pair.map(p => `<div>${field(p)}</div>`).join("")}</div>`;
+  if (f.show && !f.show(st)) return "";
+  const v = st[f.k];
+  const lab = f.l ? (f.type === "text" || f.type === "number" || f.type === "area" ? `<label for="f-${f.k}">${f.l}</label>` : `<span class="ql" id="l-${f.k}">${f.l}</span>`) : "";
+  let ctl = "";
+  if (f.type === "text") ctl = `<input type="text" id="f-${f.k}" data-k="${f.k}" value="${esc(v || "")}" ${f.ac ? `autocomplete="${f.ac}"` : ""}>`;
+  if (f.type === "number") ctl = `<input type="number" inputmode="decimal" id="f-${f.k}" data-k="${f.k}" value="${esc(v || "")}">`;
+  if (f.type === "area") ctl = `<textarea id="f-${f.k}" data-k="${f.k}">${esc(v || "")}</textarea>`;
+  if (f.type === "one" || f.type === "many") {
+    const sel = x => f.type === "one" ? v === x : Array.isArray(v) && v.includes(x);
+    ctl = `<div class="opts${f.col ? " col" : ""}" role="group" ${f.l ? `aria-labelledby="l-${f.k}"` : ""}>` + f.o.map(x => `<button type="button" class="opt" data-k="${f.k}" data-v="${esc(x)}" aria-pressed="${sel(x)}">${esc(x)}</button>`).join("") + `</div>`;
+  }
+  if (f.type === "range") { const n = v ?? 3; ctl = `<input type="range" min="0" max="10" step="1" id="f-${f.k}" data-k="${f.k}" value="${n}" aria-label="${f.l}"><div class="scale"><span>0</span><b id="rv">${n}</b><span>10</span></div>`; }
+  return `<div class="q">${lab}${ctl}</div>`;
+}
+
+function flat(s) { return s.f.flatMap(f => f.pair ? f.pair : [f]); }
+function missing() {
+  return flat(STEPS[step]).filter(f => f.req && (!f.show || f.show(st))).filter(f => { const v = st[f.k]; return v === undefined || v === "" || (Array.isArray(v) && !v.length); });
+}
+
+function summary() {
+  const L = [];
+  const add = (k, v) => { if (v !== undefined && v !== "" && !(Array.isArray(v) && !v.length)) L.push(`${k}: ${Array.isArray(v) ? v.join(", ") : v}`); };
+  L.push("EVALUACIÓN INICIAL · DEPORTISTAS");
+  add("Nombre", st.nombre); add("Edad", st.edad); add("Pierna dominante", st.pierna); add("Altura (cm)", st.altura); add("Peso (kg)", st.peso);
+  add("Deporte", st.deporte); add("Posición / rol", st.posicion); add("Nivel", st.nivel); add("Días de deporte por semana", st.diasDeporte); add("Compite", st.compite); add("Temporada", st.temporada);
+  add("Días para físico", st.diasFisico); add("Tiempo por sesión", st.tiempo); add("Dónde entrena", st.lugar);
+  add("Objetivos", st.objetivos);
+  add("Molestias", st.zonas);
+  if (hasPain(st)) { add("Lado", st.lado); add("Intensidad (0-10)", st.dolor ?? 3); add("Aparece", st.cuando); add("Se inflama", st.inflama); }
+  add("Lesiones / cirugías", st.lesiones); add("Etapa de la lesión", st.rehab);
+  add("Condición médica / medicación", st.condicion === "Sí" ? (st.condicionTxt || "Sí") : st.condicion);
+  add("Sueño", st.sueno); add("Estrés", st.estres); add("Comentarios", st.extra);
+  return L.join("\n");
+}
+
+function render() {
+  document.getElementById("prog").innerHTML = STEPS.map((_, i) => `<i class="${i < step || step === STEPS.length ? "on" : i === step ? "on" : ""}"></i>`).join("");
+  const back = document.getElementById("back"), next = document.getElementById("next");
+  if (step === STEPS.length) {
+    const txt = summary();
+    app.innerHTML = `<div class="step-n">Listo</div><h2>¡Gracias${st.nombre ? ", " + esc(String(st.nombre).split(" ")[0]) : ""}!</h2>
+      <p class="hint">Último paso: mandale tus respuestas a tu entrenador por WhatsApp.</p>
+      <div class="summary" id="sum">${esc(txt)}</div>
+      <div class="done-actions">
+        <a class="btn ball" href="https://wa.me/5491164122965?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+        <button class="btn" id="copy" type="button">Copiar respuestas</button>
+        <button class="btn" id="restart" type="button">Borrar y empezar de nuevo</button>
+        <div class="ok" id="ok"></div>
+      </div>`;
+    back.hidden = false; next.hidden = true; return;
+  }
+  const s = STEPS[step];
+  app.innerHTML = (Object.keys(st).length ? `<button class="linkbtn" id="restart" type="button">Borrar respuestas y empezar de nuevo</button>` : "") + `<div class="step-n">Paso ${step + 1} de ${STEPS.length}</div><h2>${s.t}</h2>${s.h ? `<p class="hint">${s.h}</p>` : ""}${s.f.map(field).join("")}<div class="err" id="err"></div>`;
+  back.hidden = step === 0; next.hidden = false;
+  next.textContent = step === STEPS.length - 1 ? "Ver mis respuestas" : "Siguiente";
+}
+
+app.addEventListener("click", e => {
+  const b = e.target.closest(".opt");
+  if (b) {
+    const f = flat(STEPS[step]).find(x => x.k === b.dataset.k), v = b.dataset.v;
+    if (f.type === "one") st[f.k] = st[f.k] === v ? undefined : v;
+    else {
+      let a = Array.isArray(st[f.k]) ? st[f.k].slice() : [];
+      if (a.includes(v)) a = a.filter(x => x !== v);
+      else if (f.none && v === f.none) a = [v];
+      else { a = a.filter(x => x !== f.none); if (!f.max || a.length < f.max) a.push(v); }
+      st[f.k] = a;
+    }
+    save(); render();
+    const again = app.querySelector(`.opt[data-k="${b.dataset.k}"][data-v="${CSS.escape(v)}"]`); if (again) again.focus();
+    return;
+  }
+  if (e.target.id === "restart") { st = {}; step = 0; save(); render(); window.scrollTo(0, 0); return; }
+  if (e.target.id === "copy") {
+    const txt = summary(), ok = document.getElementById("ok");
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("sum")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); ok.textContent = "Texto seleccionado: copialo y pegalo en WhatsApp."; };
+    try { navigator.clipboard.writeText(txt).then(() => { ok.textContent = "Copiado. Pegalo en el chat con tu entrenador."; }, fallback); } catch (err) { fallback(); }
+  }
+});
+app.addEventListener("input", e => {
+  const k = e.target.dataset.k; if (!k) return;
+  st[k] = e.target.type === "range" ? +e.target.value : e.target.value;
+  if (e.target.type === "range") document.getElementById("rv").textContent = e.target.value;
+  save();
+});
+document.getElementById("next").addEventListener("click", () => {
+  const m = missing();
+  if (m.length) { document.getElementById("err").textContent = "Completá lo que falta para seguir: " + m.map(f => f.l || "elegí al menos una opción").join(" · "); return; }
+  step++; save(); render(); window.scrollTo(0, 0);
+});
+document.getElementById("back").addEventListener("click", () => { if (step > 0) { step--; save(); render(); window.scrollTo(0, 0); } });
+render();
+</script>
+
+</body></html>
